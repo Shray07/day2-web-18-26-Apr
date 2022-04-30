@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        img{
+           margin: auto;
+           display: flex;
+        }
+        #box{
+            border: 10px coral;
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 12px;
+        }
+        #form{
+            display: grid;
+            padding: 50px;
+            color: grey;
+        }
+        form>input{
+            padding: 10px;
+            margin-bottom: 50px;
+        }
+        #button{
+            background-color: rgb(76, 76, 205);
+            height: 50px;
+            
+        }
+        p{
+            text-align: center;
+            color: grey;
+        }
+        a{
+            text-align: center;
+        }
+    </style>
+    <img src="https://sso.masaischool.com/brand_dark.svg"/>
+    
+    <div id="box">
+        <h2 style="text-align: center; padding-top: 15px;"><b>sign up</b></h2>
+    <form id="form">
+         <label for="name">Full name</label>  
+        <input id="name" type="text" placeholder="Enter your full name";
+
+       <label for="email">Email</label>
+       <input id="email" type="text" placeholder="Enter email";
+    
+       <label for="password">Password</label>
+       <input id="password" type="password" placeholder="Enter password";
+    
+    
+    <p>By signup i accept the masaischool tearms&service and achnoklodge be privacy&policy.</p>
+
+    <input type="submit" id="button"  value="SIG UP">
+
+    <p>Alerady has an account ?</p><a href="login.html"> Sign in</a>
+</form>
+    </div>
+
+</body>
+</html>
+
+<script>
+document.querySelector("form").addEventListener("submit",myfunction);
+
+let formArr =JSON.parse(localStorage.getItem("userData")) || [];
+
+function myfunction(){
+    event.preventDefault();
+
+    let obj={};
+    obj.names=document.querySelector("#name").value;
+    obj.emails=document.querySelector("#email").value;
+    obj.passwords=document.querySelector("#password").value;
+
+    formArr.push(obj);
+    console.log(formArr);
+    localStorage.setItem("userData",JSON.stringify(formArr));
+    alert('SING UP SUCCESSFUL');
+    window.location.href="login.html";
+}
+
+</script>

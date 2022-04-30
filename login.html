@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #box{
+            text-align:center;
+        }
+        div>form{
+         display: grid;
+         width: 45px;
+        }
+    </style>
+    <h2>Log in</h2>
+    <div id="box" >
+     <form id="form">
+         <lable for="name">User Name</lable>
+         <input type="text" placeholder="Username">
+
+         <label for="email">email</label>
+         <input type="text" placeholder="Email">
+
+         <lable for="passwords">Password</lable>
+         <input type="passwords" placeholder="Password">
+
+         <input type="submit" value="Log in">
+
+     </form>
+
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit",myfunction);
+
+   var userData=JSON.parse(localStorage.getItem("userData"));
+
+  function myfunction(){
+      event.preventDefault();
+   
+      
+      let names =document.querySelector("#name").value;
+      let emails =document.querySelector("#email").value;
+      let passwords =document.querySelector("#password").value;
+
+      if(names==userData || emails==userData && passwords==userData)
+      {
+          alert("Login successful");
+      }
+      else
+      {
+          alert("Unmached credentials");
+      }
+  }
+
+</script>
